@@ -91,3 +91,18 @@
   margin: 0 auto;
   margin-bottom: 50px;
 }
+
+.card__button-delete {
+  position: absolute;
+  right: 1rem;
+  top: 90%;
+  margin: 5px;
+  cursor: pointer;
+  color: var(--white);
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.card__button-delete:hover {
+  background-color: var(--secondary);
+}

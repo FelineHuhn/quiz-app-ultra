@@ -1,4 +1,4 @@
-export const cards = [
+export const cardsList = [
   {
     question: "Aus welchem Land kommen Rösti und Fondue?",
     answer: "Schweiz.",
