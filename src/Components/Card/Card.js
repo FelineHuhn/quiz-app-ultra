@@ -10,7 +10,7 @@ export default function Card({
   isBookmarked,
   id,
   deleteCard,
-  // toggleBookmark,
+  toggleBookmark,
 }) {
   const [state, setState] = useState(inititalState);
   const [bookmarkState, setBookmark] = useState(isBookmarked);
@@ -50,7 +50,7 @@ export default function Card({
         <div className="card__button-bookmark">
           <button
             onClick={() => {
-              // toggleBookmark(id);
+              toggleBookmark(id);
 
               setBookmark(() => {
                 if (bookmarkState === true) {

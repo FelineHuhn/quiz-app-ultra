@@ -1,6 +1,6 @@
 import Card from "../Components/Card/Card";
 
-export default function Bookmark({ cards, deleteCard }) {
+export default function Bookmark({ cards, deleteCard, toggleBookmark }) {
   return (
     <ul className="card-list">
       {cards.map((card, index) => {
@@ -14,6 +14,7 @@ export default function Bookmark({ cards, deleteCard }) {
               id={card.id}
               isBookmarked={card.isBookmarked}
               deleteCard={deleteCard}
+              toggleBookmark={toggleBookmark}
             />
           );
         } else {

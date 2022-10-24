@@ -1,4 +1,5 @@
 import "./Create.css";
+// import { useEffect, useState } from "react";
 
 export default function Create({ appendCard, navigateTo }) {
   function handleSubmit(event) {
@@ -10,6 +11,19 @@ export default function Create({ appendCard, navigateTo }) {
     appendCard(data.input__question, data.input__answer, data.input__tag);
     navigateTo("home");
   }
+
+  // const [karte, setKarte] = useState(() => {
+  //   try {
+  //     return JSON.parse(localStorage.getItem("quiz-cards-list") ?? []);
+  //   } catch (error) {
+  //     return [];
+  //   }
+  // });
+  // const [input, setInput] = useState("");
+
+  // useEffect(() => {
+  //   localStorage.setItem("quiz-cards-list", JSON.stringify(karte));
+  // });
 
   return (
     <form onSubmit={handleSubmit}>

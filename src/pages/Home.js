@@ -13,7 +13,7 @@ export default function Home({ cards, deleteCard, toggleBookmark }) {
             id={card.id}
             isBookmarked={card.isBookmarked}
             deleteCard={deleteCard}
-            // toggleBookmark={toggleBookmark}
+            toggleBookmark={toggleBookmark}
           />
         );
       })}

@@ -21,10 +21,10 @@ function App() {
     });
   }
 
-  // function toggleBookmark(id) {
-  //   const cardToEdit = cards.find((card) => card.id === id);
-  //   console.log(cardToEdit);
-  // }
+  function toggleBookmark(id) {
+    const cardToEdit = cards.find((card) => card.id === id);
+    return cardToEdit;
+  }
 
   function deleteCard(id) {
     setCard((cards) => {
@@ -40,12 +40,16 @@ function App() {
         {page === "home" ? (
           <Home
             cards={cards}
-            // toggleBookmark={toggleBookmark}
+            toggleBookmark={toggleBookmark}
             deleteCard={deleteCard}
           />
         ) : null}
         {page === "bookmark" ? (
-          <Bookmark cards={cards} deleteCard={deleteCard} />
+          <Bookmark
+            cards={cards}
+            deleteCard={deleteCard}
+            toggleBookmark={toggleBookmark}
+          />
         ) : null}
         {page === "create" ? (
           <Create appendCard={appendCard} navigateTo={setPage} />
