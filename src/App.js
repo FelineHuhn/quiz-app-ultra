@@ -1,15 +1,24 @@
 import Header from "./Components/Header/Header";
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./pages/Home";
-import { useState } from "react";
-import { cardsList } from "./utils/db";
+import { useEffect, useState } from "react";
 import Create from "./pages/Create";
 import Profile from "./pages/Profile";
 import Bookmark from "./pages/Bookmark";
 
 function App() {
   const [page, setPage] = useState("home");
-  const [cards, setCard] = useState(cardsList);
+  const [cards, setCard] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("cardsList") ?? []);
+    } catch (error) {
+      console.warn(error);
+      return [];
+    }
+  });
+  useEffect(() => {
+    localStorage.setItem("cardsList", JSON.stringify(cards));
+  }, [cards]);
 
   function appendCard(question, answer, tag) {
     const tagsArray = tag.split(" ");
@@ -17,18 +26,28 @@ function App() {
 
     setCard((cardsList) => {
       const newCardsList = [...cardsList, newCard];
+
       return newCardsList;
     });
   }
 
   function toggleBookmark(id) {
-    const cardToEdit = cards.find((card) => card.id === id);
-    return cardToEdit;
+    const newCardArray = cards.map((card) => {
+      if (card.question === id) {
+        return {
+          ...card,
+          isBookmarked: !card.isBookmarked,
+        };
+      } else {
+        return card;
+      }
+    });
+    setCard(newCardArray);
   }
 
   function deleteCard(id) {
     setCard((cards) => {
-      const newCardsList = cards.filter((card) => card.id !== id);
+      const newCardsList = cards.filter((card) => card.question !== id);
       return newCardsList;
     });
   }

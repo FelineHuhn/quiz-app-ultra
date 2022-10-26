@@ -15,7 +15,7 @@ export default function Card({
   const [state, setState] = useState(inititalState);
   const [bookmarkState, setBookmark] = useState(isBookmarked);
   return (
-    <li id={id} className="card-list__item">
+    <li id={question} className="card-list__item">
       <article className="card">
         <h2 className="card__question">{question}</h2>
         <button
@@ -50,7 +50,7 @@ export default function Card({
         <div className="card__button-bookmark">
           <button
             onClick={() => {
-              toggleBookmark(id);
+              toggleBookmark(question);
 
               setBookmark(() => {
                 if (bookmarkState === true) {
@@ -74,7 +74,7 @@ export default function Card({
           </button>
         </div>
         <button
-          onClick={() => deleteCard(id)}
+          onClick={() => deleteCard(question)}
           className="card__button-delete"
           type="button"
         >

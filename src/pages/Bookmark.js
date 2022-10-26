@@ -11,7 +11,7 @@ export default function Bookmark({ cards, deleteCard, toggleBookmark }) {
               tags={card.tags}
               answer={card.answer}
               question={card.question}
-              id={card.id}
+              id={card.quesion}
               isBookmarked={card.isBookmarked}
               deleteCard={deleteCard}
               toggleBookmark={toggleBookmark}
